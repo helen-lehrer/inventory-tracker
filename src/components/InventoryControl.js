@@ -3,6 +3,7 @@ import NewInventoryForm from './NewInventoryForm';
 import InventoryList from './InventoryList';
 import InventoryDetail from "./InventoryDetail";
 import Menu from "./Menu";
+import EditInventoryForm from "./EditInventoryForm";
 // import EditInventoryForm from './EditInventoryForm';
 
 class InventoryControl extends React.Component {
@@ -14,9 +15,24 @@ class InventoryControl extends React.Component {
       selectedInventory: null,
       selectedName: null,
       selectedOrigin: null,
-      selectedDescription: null
-      // editing: false
+      selectedDescription: null,
+      editing: false
     };
+  }
+
+  handleEditingInventoryInList = (inventoryToEdit) => {
+    const editedMainInventoryList = this.state.mainInventoryList
+    .filter(inventory => inventory.id !== this.state.selectedInventory.id)
+    .concat(inventoryToEdit);
+    this.setState({
+      mainInventoryList: editedMainInventoryList,
+      editing: false,
+      selectedInventory: null
+    })
+  }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
   }
 
   handleDisplayMenuDetails = (inventory) => {
@@ -78,7 +94,11 @@ class InventoryControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if(this.state.selectedInventory != null) {
+    if(this.state.editing) {
+      currentlyVisibleState = <EditInventoryForm inventory = {this.state.selectedInventory} onEditInventory = {this.handleEditingInventoryInList} />
+      buttonText = "Return to Inventory List"
+    }
+    else if(this.state.selectedInventory != null) {
       currentlyVisibleState = <InventoryDetail
       inventory = {this.state.selectedInventory} inventoryName = {this.state.selectedName} inventoryOrigin = {this.state.selectedOrigin} inventoryDescription = {this.state.selectedDescription} onDisplayingDetails = {this.handleDisplayMenuDetails} onClickingDelete = {this.handleDeletingInventory}
       onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory} onClickingRestock = {this.handleRestockInventory}/>
@@ -87,7 +107,8 @@ class InventoryControl extends React.Component {
     else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventoryToList}/>
       buttonText = "Return to Inventory List";
-    } else {
+    }
+    else {
       currentlyVisibleState = <InventoryList inventoryList={this.state.mainInventoryList} onInventorySelection={this.handleChangingSelectedInventory} />
       buttonText = "Add Inventory Item";
     }

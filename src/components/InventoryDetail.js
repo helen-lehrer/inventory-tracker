@@ -39,8 +39,8 @@ function InventoryDetail(props){
       <p>{inventoryName}</p>
       {/* <p>{inventory.description}</p> */}
       <button onClick={ () => onClickingBuy(inventory) }>Buy</button>
-      {/* <button onClick={ props.onClickingEdit }>Update Inventory</button>
-      <button onClick={()=> onClickingDelete(inventory.id)}>Delete Inventory Item</button> */}
+      <button onClick={ props.onClickingEdit }>Update Inventory</button>
+      {/* <button onClick={()=> onClickingDelete(inventory.id)}>Delete Inventory Item</button> */}
       <hr/>
     </React.Fragment>
   );
