@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function InventoryDetail(props){
-  const { inventory, inventoryName, inventoryOrigin, inventoryDescription, onDisplayingDetails, onClickingBuy } = props;
+  const { inventory, inventoryName, inventoryOrigin, inventoryDescription, onDisplayingDetails, onClickingBuy, onClickingDelete } = props;
   // function handleRestockFormSubmission(event){
   //   event.preventDefault();
   //   props.onClickingRestock({
@@ -39,8 +39,8 @@ function InventoryDetail(props){
       <p>{inventoryName}</p>
       {/* <p>{inventory.description}</p> */}
       <button onClick={ () => onClickingBuy(inventory) }>Buy</button>
-      <button onClick={ props.onClickingEdit }>Update Inventory</button>
-      {/* <button onClick={()=> onClickingDelete(inventory.id)}>Delete Inventory Item</button> */}
+      <button onClick={ props.onClickingEdit }>Update</button>
+      <button onClick={()=> onClickingDelete(inventory.id)}>Delete</button>
       <hr/>
     </React.Fragment>
   );
