@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { v4 } from 'uuid';
 import ReusableForm from "./ReusableForm";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 
 function NewInventoryForm(props){
   function handleNewInventoryFormSubmission(event) {
@@ -15,7 +15,7 @@ function NewInventoryForm(props){
   }
   return (
     <React.Fragment>
-      <Menu />
+      {/* <Menu /> */}
       <ReusableForm
       formSubmissionHandler={handleNewInventoryFormSubmission}
       buttonText="Create" />

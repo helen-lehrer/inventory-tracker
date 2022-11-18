@@ -20,6 +20,31 @@ class InventoryControl extends React.Component {
     };
   }
 
+  // handleDisplayMenuDetails = (inventory) => {
+  //   if(this.state.selectedInventory != null){
+  //     this.setState({
+  //       selectedName: inventory.name
+  //     });
+  //   }
+  //   if (this.state.selectedName === "Ambrosia") {
+  //     this.setState({
+  //       selectedOrigin: "USA",
+  //       selectedDescription: "Loose leaf ice tea blend with hints of cinnamon and citrus"
+  //     });
+  //   }
+  //   else if (this.state.selectedName === "Fruit Blend") {
+  //     this.setState({
+  //       selectedOrigin: "USA",
+  //       selectedDescription: "Strong, tart, red infusion with minty and citrus herbal flavors"
+  //     });
+  //   }
+  //   else if (this.state.selectedName === "Dragon Well") {
+  //     this.setState({
+  //       selectedOrigin: "Hangzhou, China",
+  //       selectedDescription: "Hand processed and pan fired with mellow, classic green flavor"
+  //     });
+  //   }
+    // }
   handleDeletingInventory = (id) => {
     const newMainInventoryList = this.state.mainInventoryList.filter(inventory => inventory.id !== id);
     this.setState({
@@ -43,31 +68,7 @@ class InventoryControl extends React.Component {
     this.setState({editing: true});
   }
 
-  handleDisplayMenuDetails = (inventory) => {
-    if(this.state.selectedInventory != null){
-      this.setState({
-        selectedName: inventory.name
-      });
-    }
-    if (this.state.selectedName === "Ambrosia") {
-      this.setState({
-        selectedOrigin: "USA",
-        selectedDescription: "Loose leaf ice tea blend with hints of cinnamon and citrus"
-      });
-    }
-    else if (this.state.selectedName === "Fruit Blend") {
-      this.setState({
-        selectedOrigin: "USA",
-        selectedDescription: "Strong, tart, red infusion with minty and citrus herbal flavors"
-      });
-    }
-    else if (this.state.selectedName === "Dragon Well") {
-      this.setState({
-        selectedOrigin: "Hangzhou, China",
-        selectedDescription: "Hand processed and pan fired with mellow, classic green flavor"
-      });
-    }
-    }
+
 
   handleClick = () => {
     if(this.state.selectedInventory != null){
@@ -99,6 +100,29 @@ class InventoryControl extends React.Component {
     } 
 
   render(){
+    const menu = [
+      {
+      name: "Ambrosia",
+      origin: "USA",
+      description: "Loose leaf ice tea blend with hints of cinnamon and citrus",
+      type: "Black teas and spices",
+      price: "$2000"
+      },
+      {
+        name: "Fruit Blend",
+        origin: "USA",
+        description: "Strong, tart, red infusion with minty and citrus herbal flavors",
+        type: "Herbal",
+        price: "$2500"
+      },
+      {
+        name: "Dragon Well",
+        origin: "Hangzhou, China",
+        description: "Hand processed and pan fired with mellow, classic green flavor",
+        type: "Green tea",
+        price: "$3000"
+      }
+    ];
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -108,13 +132,17 @@ class InventoryControl extends React.Component {
     }
     else if(this.state.selectedInventory != null) {
       currentlyVisibleState = <InventoryDetail
-      inventory = {this.state.selectedInventory} inventoryName = {this.state.selectedName} inventoryOrigin = {this.state.selectedOrigin} inventoryDescription = {this.state.selectedDescription} onDisplayingDetails = {this.handleDisplayMenuDetails} onClickingDelete = {this.handleDeletingInventory}
-      onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory} onClickingRestock = {this.handleRestockInventory}/>
+      inventory = {this.state.selectedInventory} onClickingDelete = {this.handleDeletingInventory}
+      onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory}/>
       buttonText = "Return To Inventory List";
     }
     else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventoryToList}/>
-      buttonText = "Return to Inventory List";
+      currentlyVisibleState = 
+      <React.Fragment>
+        < Menu teaOne={menu[0]} teaTwo={menu[1]} teaThree={menu[2]} />
+        <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventoryToList} />
+        buttonText = "Return to Inventory List"
+      </React.Fragment>;
     }
     else {
       currentlyVisibleState = <InventoryList inventoryList={this.state.mainInventoryList} onInventorySelection={this.handleChangingSelectedInventory} />

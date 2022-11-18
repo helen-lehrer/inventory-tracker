@@ -1,31 +1,35 @@
 import React from "react";
 
-function Menu(){
+function Menu(props){
+const { teaOne, teaTwo, teaThree } = props;
 return (
-<div id="menu-div">
+<React.Fragment>
   <h1>Menu</h1>
   <p><em>All tea is sold in 130 lb sacks.</em></p>
   <ul>
     <li>
-      <h3>Ambrosia</h3>
-      <p>Origin: </p><em>USA</em>
-      <p>Description:</p><em>Loose leaf ice tea blend with hints of cinnamon and citrus</em>
-      <p>Type: </p><em>Black teas and spices</em>
+      <h3>{teaOne.name}</h3>
+      <p>Origin: </p><em>{teaOne.origin}</em>
+      <p>Description:</p><em>{teaOne.description}</em>
+      <p>Type: </p><em>{teaOne.type}</em>
+      <p>Price: </p><em>{teaOne.price}</em>
     </li>
     <li>
-      <h3>Fruit Blend</h3>
-      <p>Origin: </p><em>USA</em>
-      <p>Description:</p><em>Strong, tart, red infusion with minty and citrus herbal flavors</em>
-      <p>Type: </p><em>Herbal</em>
+      <h3>{teaTwo.name}</h3>
+      <p>Origin: </p><em>{teaTwo.origin}</em>
+      <p>Description:</p><em>{teaTwo.description}</em>
+      <p>Type: </p><em>{teaTwo.type}</em>
+      <p>Price: </p><em>{teaTwo.price}</em>
     </li>
     <li>
-      <h3>Dragon Well</h3>
-      <p>Origin: </p><em>Hangzhou, China</em>
-      <p>Description:</p><em>Hand processed and pan fired with mellow, classic green flavor</em>
-      <p>Type: </p><em>Green tea</em>
+      <h3>{teaThree.name}</h3>
+      <p>Origin: </p><em>{teaThree.origin}</em>
+      <p>Description:</p><em>{teaThree.description}</em>
+      <p>Type: </p><em>{teaThree.type}</em>
+      <p>Price: </p><em>{teaThree.price}</em>
     </li>
   </ul>
-</div>
+</React.Fragment>
   );
 }
 
