@@ -2,10 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function InventoryDetail(props){
-  const { inventory, inventoryName, inventoryOrigin, inventoryDescription } = props;
-  props.onDisplayingDetails(inventory);
-  console.log(props)
-  console.log(inventoryName)
+  const { inventory, inventoryName, inventoryOrigin, inventoryDescription, onDisplayingDetails, onClickingBuy } = props;
   // function handleRestockFormSubmission(event){
   //   event.preventDefault();
   //   props.onClickingRestock({
@@ -17,31 +14,32 @@ function InventoryDetail(props){
   // }
 
 
-  // if(inventory.quantity === 0){
-  //   return (
-  //     <React.Fragment>
-  //     <h2>Inventory Detail</h2>
-  //     <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
-  //     <p>{inventory.description}</p>
-  //     <p>This Item has been sold out!</p>
-  //     <form onSubmit={ handleRestockFormSubmission }>
-  //     <label>Restock Value</label>
-  //     <input name="quantity" type="number" placeholder="0" min="0"></input>
-  //     <button type="submit">Restock</button>
-  //     </form>
-  //     <button onClick={ props.onClickingEdit }>Update Inventory</button>
-  //     </React.Fragment>
-  //   )
-  // }
+  if(inventory.quantity === 0){
+    return (
+      <React.Fragment>
+      <h2>Inventory Detail</h2>
+      <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
+      <p>{inventory.description}</p>
+      <p>This Item has been sold out!</p>
+      {/* <form onSubmit={ handleRestockFormSubmission }>
+      <label>Restock Value</label>
+      <input name="quantity" type="number" placeholder="0" min="0"></input>
+      <button type="submit">Restock</button>
+      </form>
+      <button onClick={ props.onClickingEdit }>Update Inventory</button> */}
+      </React.Fragment>
+    )
+  }
 
   return (
     <React.Fragment>
+      {/* {onDisplayingDetails( inventory )}; */}
       <h2>Inventory Detail</h2>
-      <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
+      <h3>{inventory.name} - <em>{inventory.quantity} lbs</em></h3>
       <p>{inventoryName}</p>
       {/* <p>{inventory.description}</p> */}
-      {/* <button onClick={ () => onClickingBuy(inventory) }>Buy</button>
-      <button onClick={ props.onClickingEdit }>Update Inventory</button>
+      <button onClick={ () => onClickingBuy(inventory) }>Buy</button>
+      {/* <button onClick={ props.onClickingEdit }>Update Inventory</button>
       <button onClick={()=> onClickingDelete(inventory.id)}>Delete Inventory Item</button> */}
       <hr/>
     </React.Fragment>

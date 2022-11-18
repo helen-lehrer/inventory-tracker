@@ -9,7 +9,7 @@ return (
     <Inventory 
     whenInventoryClicked = { props.onInventorySelection }
     name ={inventory.name}
-    quantity ={inventory.quantity} 
+    quantity ={inventory.quantity}
     id={inventory.id}
     key={inventory.id} />
     )}

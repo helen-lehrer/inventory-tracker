@@ -6,7 +6,7 @@ function Inventory(props){
     <React.Fragment>
       <div onClick={() => props.whenInventoryClicked(props.id)}>
       <h3>{props.name}</h3>
-      <p><em>{props.quantity}</em></p>
+      <p><em>{props.quantity} lbs</em></p>
       </div>
     </React.Fragment>
   )

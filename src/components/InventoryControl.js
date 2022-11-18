@@ -20,7 +20,6 @@ class InventoryControl extends React.Component {
   }
 
   handleDisplayMenuDetails = (inventory) => {
-    console.log(inventory);
     if(this.state.selectedInventory != null){
       this.setState({
         selectedName: inventory.name
@@ -67,6 +66,13 @@ class InventoryControl extends React.Component {
     const selectedInventory = this.state.mainInventoryList.filter(inventory => inventory.id === id)[0];
     this.setState({selectedInventory: selectedInventory});
    }
+
+   handleBuyInventory = (inventory) => {
+    inventory.quantity-= 1;
+    this.setState({
+      selectedInventory: inventory
+    });
+    } 
 
   render(){
     let currentlyVisibleState = null;

@@ -9,7 +9,7 @@ function NewInventoryForm(props){
     event.preventDefault();
     props.onNewInventoryCreation({
       name: event.target.name.value,
-      quantity: parseInt(event.target.quantity.value),
+      quantity: parseInt(event.target.quantity.value * 130),
       id: v4()
     });
   }
