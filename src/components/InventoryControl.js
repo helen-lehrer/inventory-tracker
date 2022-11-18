@@ -11,7 +11,7 @@ class InventoryControl extends React.Component {
       formVisibleOnPage: false,
       mainInventoryList: [],
       selectedInventory: null,
-      editing: false
+      // editing: false
     };
   }
 
