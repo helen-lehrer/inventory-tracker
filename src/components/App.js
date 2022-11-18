@@ -1,11 +1,11 @@
 import React from "react";
-import MerchControl from "./MerchControl";
-import Navbar from "./Navbar";
+import InventoryControl from "./InventoryControl";
+import NavBar from "./NavBar";
 
 function App(){
   return (
     <React.Fragment>
-      <Navbar />
+      <NavBar />
       <InventoryControl />
     </React.Fragment>
   );
