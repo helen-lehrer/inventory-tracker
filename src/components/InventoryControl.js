@@ -1,10 +1,9 @@
 import React from "react";
-import NewInventoryForm from './NewInventoryForm';
-import InventoryList from './InventoryList';
+import NewInventoryForm from "./NewInventoryForm";
+import InventoryList from "./InventoryList";
 import InventoryDetail from "./InventoryDetail";
 import Menu from "./Menu";
 import EditInventoryForm from "./EditInventoryForm";
-// import EditInventoryForm from './EditInventoryForm';
 
 class InventoryControl extends React.Component {
   constructor(props) {
@@ -13,38 +12,10 @@ class InventoryControl extends React.Component {
       formVisibleOnPage: false,
       mainInventoryList: [],
       selectedInventory: null,
-      selectedName: null,
-      selectedOrigin: null,
-      selectedDescription: null,
       editing: false
     };
   }
 
-  // handleDisplayMenuDetails = (inventory) => {
-  //   if(this.state.selectedInventory != null){
-  //     this.setState({
-  //       selectedName: inventory.name
-  //     });
-  //   }
-  //   if (this.state.selectedName === "Ambrosia") {
-  //     this.setState({
-  //       selectedOrigin: "USA",
-  //       selectedDescription: "Loose leaf ice tea blend with hints of cinnamon and citrus"
-  //     });
-  //   }
-  //   else if (this.state.selectedName === "Fruit Blend") {
-  //     this.setState({
-  //       selectedOrigin: "USA",
-  //       selectedDescription: "Strong, tart, red infusion with minty and citrus herbal flavors"
-  //     });
-  //   }
-  //   else if (this.state.selectedName === "Dragon Well") {
-  //     this.setState({
-  //       selectedOrigin: "Hangzhou, China",
-  //       selectedDescription: "Hand processed and pan fired with mellow, classic green flavor"
-  //     });
-  //   }
-    // }
   handleDeletingInventory = (id) => {
     const newMainInventoryList = this.state.mainInventoryList.filter(inventory => inventory.id !== id);
     this.setState({
@@ -67,8 +38,6 @@ class InventoryControl extends React.Component {
   handleEditClick = () => {
     this.setState({editing: true});
   }
-
-
 
   handleClick = () => {
     if(this.state.selectedInventory != null){
@@ -132,17 +101,20 @@ class InventoryControl extends React.Component {
     }
     else if(this.state.selectedInventory != null) {
       currentlyVisibleState = <InventoryDetail
-      inventory = {this.state.selectedInventory} onClickingDelete = {this.handleDeletingInventory}
+      inventory = {this.state.selectedInventory}
+      menu = {menu}
+      onClickingDelete = {this.handleDeletingInventory}
       onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory}/>
       buttonText = "Return To Inventory List";
     }
     else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = 
       <React.Fragment>
-        < Menu teaOne={menu[0]} teaTwo={menu[1]} teaThree={menu[2]} />
+        <Menu teaOne={menu[0]} teaTwo={menu[1]} teaThree={menu[2]} />
         <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventoryToList} />
-        buttonText = "Return to Inventory List"
+  
       </React.Fragment>;
+      buttonText = "Return to Inventory List";
     }
     else {
       currentlyVisibleState = <InventoryList inventoryList={this.state.mainInventoryList} onInventorySelection={this.handleChangingSelectedInventory} />
