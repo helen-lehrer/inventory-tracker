@@ -9,8 +9,6 @@ return (
     <Inventory 
     whenInventoryClicked = { props.onInventorySelection }
     name ={inventory.name}
-    origin ={inventory.origin}
-    description ={inventory.description}
     quantity ={inventory.quantity} 
     id={inventory.id}
     key={inventory.id} />

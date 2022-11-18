@@ -2,6 +2,7 @@ import React from "react";
 import NewInventoryForm from './NewInventoryForm';
 import InventoryList from './InventoryList';
 import InventoryDetail from "./InventoryDetail";
+import Menu from "./Menu";
 // import EditInventoryForm from './EditInventoryForm';
 
 class InventoryControl extends React.Component {
@@ -11,9 +12,39 @@ class InventoryControl extends React.Component {
       formVisibleOnPage: false,
       mainInventoryList: [],
       selectedInventory: null,
+      selectedName: null,
+      selectedOrigin: null,
+      selectedDescription: null
       // editing: false
     };
   }
+
+  handleDisplayMenuDetails = (inventory) => {
+    console.log(inventory);
+    if(this.state.selectedInventory != null){
+      this.setState({
+        selectedName: inventory.name
+      });
+    }
+    if (this.state.selectedName === "Ambrosia") {
+      this.setState({
+        selectedOrigin: "USA",
+        selectedDescription: "Loose leaf ice tea blend with hints of cinnamon and citrus"
+      });
+    }
+    else if (this.state.selectedName === "Fruit Blend") {
+      this.setState({
+        selectedOrigin: "USA",
+        selectedDescription: "Strong, tart, red infusion with minty and citrus herbal flavors"
+      });
+    }
+    else if (this.state.selectedName === "Dragon Well") {
+      this.setState({
+        selectedOrigin: "Hangzhou, China",
+        selectedDescription: "Hand processed and pan fired with mellow, classic green flavor"
+      });
+    }
+    }
 
   handleClick = () => {
     if(this.state.selectedInventory != null){
@@ -43,7 +74,7 @@ class InventoryControl extends React.Component {
 
     if(this.state.selectedInventory != null) {
       currentlyVisibleState = <InventoryDetail
-      merch = {this.state.selectedInventory} onClickingDelete = {this.handleDeletingInventory}
+      inventory = {this.state.selectedInventory} inventoryName = {this.state.selectedName} inventoryOrigin = {this.state.selectedOrigin} inventoryDescription = {this.state.selectedDescription} onDisplayingDetails = {this.handleDisplayMenuDetails} onClickingDelete = {this.handleDeletingInventory}
       onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory} onClickingRestock = {this.handleRestockInventory}/>
       buttonText = "Return To Inventory List";
     }
@@ -59,7 +90,8 @@ class InventoryControl extends React.Component {
         {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
-      );
+    );
   }
 }
+
 export default InventoryControl;
