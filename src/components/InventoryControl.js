@@ -1,7 +1,7 @@
 import React from "react";
 import NewInventoryForm from './NewInventoryForm';
 import InventoryList from './InventoryList';
-// import InventoryDetail from "./InventoryDetail";
+import InventoryDetail from "./InventoryDetail";
 // import EditInventoryForm from './EditInventoryForm';
 
 class InventoryControl extends React.Component {
@@ -40,7 +40,14 @@ class InventoryControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
+
+    if(this.state.selectedInventory != null) {
+      currentlyVisibleState = <InventoryDetail
+      merch = {this.state.selectedInventory} onClickingDelete = {this.handleDeletingInventory}
+      onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyInventory} onClickingRestock = {this.handleRestockInventory}/>
+      buttonText = "Return To Inventory List";
+    }
+    else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventoryToList}/>
       buttonText = "Return to Inventory List";
     } else {
