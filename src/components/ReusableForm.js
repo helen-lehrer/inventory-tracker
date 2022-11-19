@@ -7,7 +7,7 @@ function ReusableForm(props) {
       <form onSubmit={props.formSubmissionHandler}>
         <label>Type of Tea:</label>
           <select name="name"> 
-            <option value="Ambrosia Tea">Ambrosia Tea</option>
+            <option value="Ambrosia">Ambrosia Tea</option>
             <option value="Fruit Blend">Fruit Blend</option>
             <option value="Dragon Well">Dragon Well</option>
           </select>

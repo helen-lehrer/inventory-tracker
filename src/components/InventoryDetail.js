@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 function InventoryDetail(props){
   const { inventory, menu, onClickingBuy, onClickingDelete } = props;
   let details = null;
+  console.log(inventory)
   // function handleRestockFormSubmission(event){
   //   event.preventDefault();
   //   props.onClickingRestock({
@@ -35,17 +36,15 @@ function InventoryDetail(props){
     // const price = menu[2].price
   }
 
-  const details = null;
-
   if(inventory.quantity === 0){
     return (
       <React.Fragment>
       <h2>Inventory Detail</h2>
       <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
-      <p>{origin}</p>
-      <p>{description}</p>
-      <p>{type}</p>
-      <p>{price}</p>
+      <p>{details.origin}</p>
+      <p>{details.description}</p>
+      <p>{details.type}</p>
+      <p>{details.price}</p>
       <p>This Item has been sold out!</p>
       {/* <form onSubmit={ handleRestockFormSubmission }>
       <label>Restock Value</label>
@@ -59,10 +58,12 @@ function InventoryDetail(props){
 
   return (
     <React.Fragment>
-      {/* {onDisplayingDetails( inventory )}; */}
       <h2>Inventory Detail</h2>
       <h3>{inventory.name} - <em>{inventory.quantity} lbs</em></h3>
       <p>{details.origin}</p>
+      <p>{details.description}</p>
+      <p>{details.type}</p>
+      <p>{details.price}</p>
       <button onClick={ () => onClickingBuy(inventory) }>Buy</button>
       <button onClick={ props.onClickingEdit }>Update</button>
       <button onClick={()=> onClickingDelete(inventory.id)}>Delete</button>
