@@ -14,7 +14,6 @@ function Inventory(props){
 
 Inventory.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string,
   quantity: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenInventoryClicked: PropTypes.func

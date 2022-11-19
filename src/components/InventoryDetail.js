@@ -16,24 +16,12 @@ function InventoryDetail(props){
   // }
   if(inventory.name === "Ambrosia") {
     details = menu[0]
-    // const origin = menu[0].origin;
-    // const description = menu[0].description;
-    // const type = menu[0].type;
-    // const price = menu[0].price
   }
   else if(inventory.name === "Fruit Blend") {
     details = menu[1]
-    // const origin = menu[1].origin;
-    // const description = menu[1].description;
-    // const type = menu[1].type;
-    // const price = menu[1].price
   }
   else if(inventory.name === "Dragon Well") {
     details = menu[2]
-    // const origin = menu[2].origin;
-    // const description = menu[2].description;
-    // const type = menu[2].type;
-    // const price = menu[2].price
   }
 
   if(inventory.quantity === 0){
@@ -80,9 +68,9 @@ InventoryDetail.propTypes = {
   inventoryName: PropTypes.string,
   inventoryOrigin: PropTypes.string,
   inventoryDetils: PropTypes.string,
-  // onClickingDelete: PropTypes.func,
-  // onClickingEdit: PropTypes.func,
-  // onClickingBuy: PropTypes.func,
+  onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func,
+  onClickingBuy: PropTypes.func,
   // onClickingRestock: PropTypes.func
 };
 
