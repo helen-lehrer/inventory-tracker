@@ -16,3 +16,22 @@ img {
 ul {
   list-style: none;
 }
+
+div {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin: .3rem;
+}
+
+#navbar {
+  width: auto;
+}
+
+button {
+  background-color:  #96be25;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+}

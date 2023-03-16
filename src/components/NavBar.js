@@ -5,17 +5,20 @@ import './../index.css';
 function NavBar(){
   const style = {
     all: {
-    backgroundColor: '#4e7a05',
+    backgroundColor: '#96be25',
     fontFamily: 'Amatic SC',
-    paddingTop: '20',
+    width: 'auto'
+    },
+    heading: {
+      padding: '10px'
     }
   }
   return (
   <React.Fragment>
-      <div style={style.all}> 
-    <nav>
-      <h1>The Tao of Tea Inventory Tracker</h1>
-    </nav>
+    <div style={style.all}> 
+      <nav id="navbar">
+        <h1 style={style.heading}>The Tao of Tea Inventory Tracker</h1>
+      </nav>
     </div>
     <img src={tea} style={style.img} width="100px"/>
   </React.Fragment>

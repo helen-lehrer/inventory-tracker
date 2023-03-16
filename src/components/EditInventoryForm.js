@@ -15,9 +15,11 @@ function EditInventoryForm(props) {
 
   return (
     <React.Fragment>
-      <ReusableForm
-      formSubmissionHandler={handleEditingInventoryFormSubmission}
-      buttonText="Update Item" />
+      <div>
+        <ReusableForm
+        formSubmissionHandler={handleEditingInventoryFormSubmission}
+        buttonText="Update Item" />
+      </div>
     </React.Fragment>
   )
 }
