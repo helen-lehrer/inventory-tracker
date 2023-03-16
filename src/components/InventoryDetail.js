@@ -17,19 +17,13 @@ function InventoryDetail(props){
   if(inventory.quantity === 0){
     return (
       <React.Fragment>
-      <h2>Inventory Detail</h2>
-      <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
-      <p>{details.origin}</p>
-      <p>{details.description}</p>
-      <p>{details.type}</p>
-      <p>{details.price}</p>
-      <p>This Item has been sold out!</p>
-      {/* <form onSubmit={ handleRestockFormSubmission }>
-      <label>Restock Value</label>
-      <input name="quantity" type="number" placeholder="0" min="0"></input>
-      <button type="submit">Restock</button>
-      </form>
-      <button onClick={ props.onClickingEdit }>Update Inventory</button> */}
+        <h2>Inventory Detail</h2>
+        <h3>{inventory.name} - <em>{inventory.quantity}</em></h3>
+        <p>{details.origin}</p>
+        <p>{details.description}</p>
+        <p>{details.type}</p>
+        <p>{details.price}</p>
+        <p>This Item has been sold out!</p>
       </React.Fragment>
     )
   }
