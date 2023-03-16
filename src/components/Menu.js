@@ -3,11 +3,16 @@ import './../index.css';
 
 function Menu(props){
 const { teaOne, teaTwo, teaThree } = props;
+const style = {
+  p: {
+  fontSize: '20px'
+  }
+}
 return (
 <React.Fragment>
   <div>
     <h1>Menu</h1>
-    <p><em>All tea is sold in 130 lb sacks.</em></p>
+    <p style={style.p}><em>All tea is sold in 130 lb sacks.</em></p>
     <ul>
       <li id="menu1">
         <h3>{teaOne.name}</h3>
