@@ -1,5 +1,7 @@
 # Inventory Tracker
 
+[tea-inventory-tracker.netlify.app](tea-inventory-tracker.netlify.app)
+
 ### A React application to track inventory for a tea shop
 
 ### Description
