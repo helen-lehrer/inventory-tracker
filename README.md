@@ -2,7 +2,7 @@
 
 ### A React application to track inventory for a tea shop
 
-## Diagram of Application
+## Component Diagram
 
 <img src="src/img/diagram.png">
 
