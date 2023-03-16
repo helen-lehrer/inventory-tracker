@@ -1,4 +1,4 @@
-# Inventory Tracker
+# Tao of Tea Inventory Tracker
 
 [tea-inventory-tracker.netlify.app](https://tea-inventory-tracker.netlify.app)
 
